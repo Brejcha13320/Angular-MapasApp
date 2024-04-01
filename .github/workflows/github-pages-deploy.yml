@@ -31,6 +31,8 @@ jobs:
 
       - name: Build Angular App
         run: |
+          environment=$(echo "${{ secrets.ENVIRONMENT }}" | base64 --decode)
+          echo "$environment" > .env
           npm run build
           ls -l
 
